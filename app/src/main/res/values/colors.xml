@@ -16,4 +16,9 @@
     <color name="yellow">#fffffbae</color>
     <color name="red">#fff10800</color>
     <color name="list_item_pressed">#1A000000</color>
+
+
+    <!-- actionbar part -->
+    <color name="pedo_actionbar_divider">#CECECE</color>
+    <color name="pedo_actionbar_bkg">#F8F8F8</color>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ly_main_weixin"
+    android:id="@+id/ly_main_Logistic"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#fcfcfc"
@@ -8,5 +8,15 @@
     
     <include layout="@layout/title_bar_02"/>
 
+    <!--    <TabWidget
+        android:id="@android:id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"/>
 
+    <FrameLayout
+        android:id="@android:id/tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>-->
 </LinearLayout>

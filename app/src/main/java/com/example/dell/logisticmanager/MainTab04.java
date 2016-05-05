@@ -1,28 +1,33 @@
 package com.example.dell.logisticmanager;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 public class MainTab04 extends Fragment {
 
+    private class Person
+    {
+        String name;
+        String phoneNum;
+        int picUrl;
+        int codeUrl;
+    }
 
     private static final String TAG ="maintab" ;
 
@@ -59,6 +64,9 @@ public class MainTab04 extends Fragment {
                 new int[]{R.id.ItemImage, R.id.ItemTitle, R.id.ItemText}
         );
 
+        //初始化个人信息
+        initializePerson(newsLayout);
+
         //添加并且显示
         list.setAdapter(listItemAdapter);
 
@@ -87,6 +95,8 @@ public class MainTab04 extends Fragment {
                     case 3:
                         Toast.makeText(context, "单击了设置", Toast.LENGTH_SHORT).show();
                         intentFunc(context,arg2);
+                        break;
+                    default:
                         break;
 
 
@@ -147,6 +157,28 @@ public class MainTab04 extends Fragment {
         startActivity(intent);
 
 
+    }
+
+    private void initializePerson(View v) {
+        Person p=new Person();
+        p.name="谢宇";
+        p.phoneNum="手机:123455677778";
+        p.picUrl=R.drawable.set_person;
+        p.codeUrl=R.drawable.set_code;
+
+        ImageView imagePerson=(ImageView)v.findViewById(R.id.imagePersonView);
+        TextView name=(TextView)v.findViewById(R.id.textNameView);
+        TextView phone=(TextView)v.findViewById(R.id.textPhoneView);
+        ImageView imageCode=(ImageView)v.findViewById(R.id.imageCodeView);
+
+        imagePerson.setBackgroundResource(p.picUrl);
+        name.setText(p.name);
+        phone.setText(p.phoneNum);
+        imageCode.setBackgroundResource(p.codeUrl);
+
+
+
+
 
     }
 
@@ -177,6 +209,20 @@ public class MainTab04 extends Fragment {
         map.put("ItemTitle", "设置");
         map.put("ItemText", "可以双击");
         lst.add(map);
+
+
+        map = new HashMap<String, Object>();
+        map.put("ItemImage", R.drawable.set_clock);
+        map.put("ItemTitle", "闹钟");
+        map.put("ItemText", "可以双击");
+        lst.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("ItemImage", R.drawable.set_phone);
+        map.put("ItemTitle", "电话");
+        map.put("ItemText", "可以双击");
+        lst.add(map);
+
 
 
     }

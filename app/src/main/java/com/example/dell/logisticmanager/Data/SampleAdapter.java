@@ -80,17 +80,17 @@ public class SampleAdapter extends ArrayAdapter<String> {
         }
 
         double positionHeight = getPositionRatio(position);
+
         int backgroundIndex = position >= mBackgroundColors.size() ?
                 position % mBackgroundColors.size() : position;
-
         //convertView.setBackgroundResource(mBackgroundColors.get(backgroundIndex));
         //test
         //convertView.setBackground(getResources().getDrawable(R.drawable.set_camera));
         convertView.setBackgroundResource(mBackgroudImage.get(backgroundIndex));
         Log.d(TAG, "getView position:" + position + " h:" + positionHeight);
-
+//demo 改变了position
         vh.txtLineOne.setHeightRatio(positionHeight);
-        vh.txtLineOne.setText(getItem(position) + position);
+        //vh.txtLineOne.setText(getItem(position) + position);
 
         vh.btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
