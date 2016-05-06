@@ -60,6 +60,11 @@ public class SampleAdapter extends ArrayAdapter<String> {
         mBackgroudImage.add(R.drawable.color_3);
         mBackgroudImage.add(R.drawable.color_4);
         mBackgroudImage.add(R.drawable.color_5);
+        mBackgroudImage.add(R.drawable.color_6);
+        mBackgroudImage.add(R.drawable.color_7);
+        mBackgroudImage.add(R.drawable.color_8);
+        mBackgroudImage.add(R.drawable.color_9);
+
 
     }
 
@@ -81,8 +86,8 @@ public class SampleAdapter extends ArrayAdapter<String> {
 
         double positionHeight = getPositionRatio(position);
 
-        int backgroundIndex = position >= mBackgroundColors.size() ?
-                position % mBackgroundColors.size() : position;
+        int backgroundIndex = position >= mBackgroudImage.size() ?
+                position % mBackgroudImage.size() : position;
         //convertView.setBackgroundResource(mBackgroundColors.get(backgroundIndex));
         //test
         //convertView.setBackground(getResources().getDrawable(R.drawable.set_camera));
@@ -90,7 +95,7 @@ public class SampleAdapter extends ArrayAdapter<String> {
         Log.d(TAG, "getView position:" + position + " h:" + positionHeight);
 //demo 改变了position
         vh.txtLineOne.setHeightRatio(positionHeight);
-        //vh.txtLineOne.setText(getItem(position) + position);
+        vh.txtLineOne.setText(getItem(position) + position);
 
         vh.btnGo.setOnClickListener(new View.OnClickListener() {
             @Override

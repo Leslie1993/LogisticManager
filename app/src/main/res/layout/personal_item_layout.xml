@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/personal_item_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp"
+    android:layout_alignParentBottom="true">
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imagePersonView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageCodeView"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/imagePersonView" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textNameView"
+        android:layout_alignTop="@+id/imageCodeView"
+        android:layout_toRightOf="@+id/imagePersonView"
+        android:layout_toEndOf="@+id/imagePersonView"
+        android:maxLength="20" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textPhoneView"
+        android:layout_below="@+id/textNameView"
+        android:layout_toRightOf="@+id/imagePersonView"
+        android:maxLength="100" />
+
+</RelativeLayout>
