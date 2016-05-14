@@ -9,4 +9,38 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dell.logisticmanager.OrderActivity">
 
+
+    <include layout="@layout/order_top"
+        android:id="@+id/include3" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提交订单"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/blue_button"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/scrollView"
+        android:layout_alignRight="@+id/include3"
+        android:layout_alignEnd="@+id/include3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/include3"
+        android:layout_above="@+id/button" >
+
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/order_item" />
+    </ScrollView>
+
+
 </RelativeLayout>

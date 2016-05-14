@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.dell.logisticmanager.Data.ArrayLogin;
 import com.example.dell.logisticmanager.WebService.ListDemo;
 import com.example.dell.logisticmanager.WebService.WebAgent;
 
@@ -23,7 +24,7 @@ public class ChangeActivity extends AppCompatActivity {
     private Button searchBtn;
 
     private String data;
-
+    ArrayList<ArrayLogin> lst;
 
 
     //跨线程刷新界面
@@ -57,9 +58,11 @@ public class ChangeActivity extends AppCompatActivity {
 //                        WebAgent agent=new WebAgent();
 //                        data =agent.getData(10);
 //                        handlerGetData.sendEmptyMessage(0);
+                        //ListDemo demo=new ListDemo();
+                        //lst=demo.queryUsers();
+                           // test();
                         ListDemo demo=new ListDemo();
-                        ArrayList<ListDemo.Arraylogin> lst=demo.queryUsers();
-
+                        demo.queryUsers();
                     }
                 }).start();
                 //String result=agent.getData(10);
@@ -98,5 +101,12 @@ public class ChangeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void test()
+    {
+
+        int i=0;
+        int j=1;
     }
 }

@@ -1,5 +1,7 @@
 package com.example.dell.logisticmanager.WebService;
 
+import com.example.dell.logisticmanager.Data.ArrayLogin;
+
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
@@ -13,18 +15,13 @@ import java.util.ArrayList;
  */
 public class ListDemo {
 
+    /*
+    * 测试返回集合对象
+    *
+    * */
+    public ArrayList<ArrayLogin> queryUsers() {
 
-    public class Arraylogin {
-        int id;
-        String pass;
-        String type;
-        String registertime;
-
-    }
-
-    public ArrayList<Arraylogin> queryUsers() {
-
-        ArrayList<Arraylogin> lst = new ArrayList<Arraylogin>();
+        ArrayList<ArrayLogin> lst = new ArrayList<ArrayLogin>();
         // 命名空间
         final String nameSpace = "http://tempuri.org/";
         // 调用的方法名称
@@ -53,7 +50,7 @@ public class ListDemo {
         try {
             // 调用WebService
             transport.call(soapAction, envelope);
-            // 获取返回的数据
+
 
 
         } catch (Exception e) {
@@ -62,16 +59,16 @@ public class ListDemo {
         }
         try
         {
-
+            // 获取返回的数据
             SoapObject object = (SoapObject) envelope.getResponse();
 
             //如果获取的是个集合，就对它进行下面的操作
-            if(object.getName()=="ArrayOfLogin")
+            if(object.getName()=="anyType")
             {
                 //遍历Web Service获得的集合
                 for(int i=0;i<object.getPropertyCount();i++){
 
-                    Arraylogin login=new Arraylogin();
+                    ArrayLogin login=new ArrayLogin();
 
                     //获取单条的数据
                     SoapObject soapChilds =(SoapObject)object.getProperty(i);
@@ -92,7 +89,7 @@ public class ListDemo {
                             String ppinfoname=propertyInfo.getName().toLowerCase();
                             if(ppinfoname.equals(name.toLowerCase()))
                             {
-                                //调用个我也看不懂的方法,给实体类赋值，具体意思也不明白，资料就这样。
+                                //给实体类赋值，具体意思也不明白，资料就这样。
                                 GetSetManager.setFieldValue(login,name,field[j].getType(),
                                         soapChilds.getProperty(propertyInfo.getName()).toString());
                             }
@@ -109,8 +106,6 @@ public class ListDemo {
         {
             e.printStackTrace();
         }
-
-
 
 
         return lst;

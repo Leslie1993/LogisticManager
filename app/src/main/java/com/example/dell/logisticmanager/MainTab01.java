@@ -137,6 +137,16 @@ public class MainTab01 extends Fragment implements AbsListView.OnItemClickListen
 				itent.setClass(getActivity(),OrderQueryActivity.class);
 				startActivity(itent);
 				break;
+			case 2:
+				Intent itent1=new Intent();
+				itent1.setClass(getActivity(),OrderActivity.class);
+				startActivity(itent1);
+				break;
+			case 3:
+				Intent itent3=new Intent();
+				itent3.setClass(getActivity(),BrowerActivity.class);
+				startActivity(itent3);
+				break;
 			default:
 				break;
 

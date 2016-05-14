@@ -30,8 +30,10 @@
         <activity android:name=".ChangeActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".OrderQueryActivity" />
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".OrderActivity" />
+        <activity android:name=".MapActivity" />
+        <activity android:name=".BrowerActivity"></activity>
     </application>
 
 </manifest>
