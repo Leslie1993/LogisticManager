@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
+import com.dacer.androidcharts.LineView;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class MainTab03 extends Fragment
 
 
 
-		/*final LineView lineView = (LineView)newsLayout.findViewById(R.id.line_view);
+		final LineView lineView = (LineView)newsLayout.findViewById(R.id.line_view);
 
 		//must*
 		ArrayList<String> test = new ArrayList<String>();
@@ -43,7 +44,7 @@ public class MainTab03 extends Fragment
 			}
 		});
 
-		randomSet(lineView);*/
+		randomSet(lineView);
 		//return rootView;
 
 
@@ -52,7 +53,7 @@ public class MainTab03 extends Fragment
 
 
 
-/*	private void randomSet(LineView lineView){
+	private void randomSet(LineView lineView){
 		ArrayList<Integer> dataList = new ArrayList<Integer>();
 		int random = (int)(Math.random()*9+1);
 		for (int i=0; i<randomint; i++){
@@ -77,6 +78,6 @@ public class MainTab03 extends Fragment
 //        dataLists.add(dataList3);
 
 		lineView.setDataList(dataLists);
-	}*/
+	}
 
 }

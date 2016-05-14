@@ -31,7 +31,8 @@
         <activity android:name=".CameraActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".OrderQueryActivity"></activity>
     </application>
 
 </manifest>

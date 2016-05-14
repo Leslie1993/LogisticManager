@@ -29,5 +29,5 @@ dependencies {
     compile 'com.etsy.android.grid:library:1.0.5'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile files('libs/ksoap2-android-assembly-3.6.0-jar-with-dependencies.jar')
-
+    compile files('libs/com.dacer.androidcharts.jar')
 }

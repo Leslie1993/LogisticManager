@@ -1,6 +1,7 @@
 package com.example.dell.logisticmanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -129,6 +130,18 @@ public class MainTab01 extends Fragment implements AbsListView.OnItemClickListen
 
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+		switch (position)
+		{
+			case 1:
+				Intent itent=new Intent();
+				itent.setClass(getActivity(),OrderQueryActivity.class);
+				startActivity(itent);
+				break;
+			default:
+				break;
+
+		}
+
 		Toast.makeText(context, "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
 	}
 
