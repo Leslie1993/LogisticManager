@@ -160,6 +160,7 @@ public class MainTab04 extends Fragment {
     }
 
     private void initializePerson(View v) {
+
         Person p=new Person();
         p.name="谢宇";
         p.phoneNum="手机:123455677778";
@@ -175,11 +176,7 @@ public class MainTab04 extends Fragment {
         name.setText(p.name);
         phone.setText(p.phoneNum);
         imageCode.setBackgroundResource(p.codeUrl);
-
-
-
-
-
+        
     }
 
     private void initializeList(ArrayList<HashMap<String, Object>> lst) {

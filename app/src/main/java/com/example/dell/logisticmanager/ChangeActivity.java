@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.dell.logisticmanager.WebService.ListDemo;
 import com.example.dell.logisticmanager.WebService.WebAgent;
+
+import java.util.ArrayList;
 
 public class ChangeActivity extends AppCompatActivity {
 
@@ -51,9 +54,11 @@ public class ChangeActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        WebAgent agent=new WebAgent();
-                        data =agent.getData(10);
-                        handlerGetData.sendEmptyMessage(0);
+//                        WebAgent agent=new WebAgent();
+//                        data =agent.getData(10);
+//                        handlerGetData.sendEmptyMessage(0);
+                        ListDemo demo=new ListDemo();
+                        ArrayList<ListDemo.Arraylogin> lst=demo.queryUsers();
 
                     }
                 }).start();

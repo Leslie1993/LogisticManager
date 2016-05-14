@@ -29,10 +29,9 @@
         <activity android:name=".PersonnalActivity" />
         <activity android:name=".ChangeActivity" />
         <activity android:name=".CameraActivity" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".OrderQueryActivity"></activity>
+        <activity android:name=".OrderQueryActivity" />
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".OrderActivity"></activity>
     </application>
 
 </manifest>
