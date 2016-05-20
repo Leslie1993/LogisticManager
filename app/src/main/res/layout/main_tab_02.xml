@@ -1,22 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ly_main_Logistic"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#fcfcfc"
-    android:orientation="vertical" >
-    
-    <include layout="@layout/title_bar_02"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-    <!--    <TabWidget
-        android:id="@android:id/tabs"
+    <!--
+     android:groupIndicator="@null" 取消默认图片
+     android:childIndicatorLeft 设置孩子左边间距
+     android:dividerHeight 这个高度一定要设置，不然显示不出来分割线，估计默认为0 吧
+     android:childDivider="@drawable/child_bg" 这个直接引color,或者图片会导致整个孩子背景都为这个颜色
+    -->
+    <include layout="@layout/title_bar_02"
+        android:id="@+id/include4" />
+    <com.example.dell.logisticmanager.UI.StickyLayout
+        android:id="@+id/sticky_layout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="bottom"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/include4">
 
-    <FrameLayout
-        android:id="@android:id/tabcontent"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>-->
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/sticky_header"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="#78A524"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sticky_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <com.example.dell.logisticmanager.UI.PinnedHeaderExpandableListView
+                android:id="@+id/expandablelist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@null"
+                android:childDivider="@drawable/child_bg"
+                android:childIndicatorLeft="0dp"
+                android:divider="@color/Grey"
+                android:dividerHeight="1dp"
+                android:groupIndicator="@null"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" >
+            </com.example.dell.logisticmanager.UI.PinnedHeaderExpandableListView>
+        </LinearLayout>
+    </com.example.dell.logisticmanager.UI.StickyLayout>
+
+</RelativeLayout>
