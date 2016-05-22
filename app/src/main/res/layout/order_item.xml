@@ -5,22 +5,119 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
+        android:layout_height="match_parent">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
+        <TextView
+            android:text="订单号"
+            android:id="@+id/tv_oid"
+            android:layout_column="1" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_oid"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15"
+
+            />
+    </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:text="New Text"
+            android:text="货物名称"
+            android:id="@+id/tv_cargoname"
+            android:layout_column="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_cargoname"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="重量"
+            android:id="@+id/tv_cargoweight"
+            android:layout_column="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_cargoweight"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="车牌号"
+            android:id="@+id/tv_vehiclenum"
+            android:layout_column="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_vehiclenum"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择车辆"
+            android:id="@+id/btn_selectvehivle"
+            android:layout_column="16" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="起点"
+            android:id="@+id/tv_Startlocation"
+            android:layout_column="1"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_Startlocation"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="起点"
+            android:id="@+id/btn_startlocation"
+            android:layout_column="16" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="终点"
             android:id="@+id/textView3"
             android:layout_column="1" />
 
@@ -28,7 +125,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
-            android:layout_column="6" />
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="终点"
+            android:id="@+id/button2"
+            android:layout_column="16" />
     </TableRow>
 
     <TableRow
@@ -36,15 +142,24 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="New Text"
+            android:text="路线选择"
             android:id="@+id/textView4"
             android:layout_column="1" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:layout_column="6" />
+            android:id="@+id/et_pathselect"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="路线选择"
+            android:id="@+id/btn_path"
+            android:layout_column="16" />
     </TableRow>
 
     <TableRow
@@ -52,44 +167,74 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="New Text"
+            android:text="发货人"
             android:id="@+id/textView5"
-            android:layout_column="1" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:text="New Text"
-            android:id="@+id/textView6"
             android:layout_column="1" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editText3"
-            android:layout_column="8" />
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
     </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <DatePicker android:id="@+id/datePicker"
+        <TextView
+            android:text="发货人电话"
+            android:id="@+id/textView7"
             android:layout_column="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText5"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+
     </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="收货人"
+            android:id="@+id/textView6"
+            android:layout_column="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText4"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="收货人电话"
+            android:id="@+id/textView8"
+            android:layout_column="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText6"
+            android:padding="3dip"
+            android:background="@drawable/et"
+            android:layout_column="15" />
+    </TableRow>
+
+
 </TableLayout>

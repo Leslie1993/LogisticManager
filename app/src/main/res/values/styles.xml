@@ -23,4 +23,18 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+<!--下拉pop相关-->
+    <style name="PopDownMenu">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_topleft_to_bottomright</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_bottomright_to_topleft</item>
+    </style>
+    <style name="GrowFromBottom">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_bottom</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_top</item>
+    </style>
+    <style name="GrowFromTop">
+        <item name="@android:windowEnterAnimation">@anim/grow_from_top</item>
+        <item name="@android:windowExitAnimation">@anim/shrink_from_bottom</item>
+    </style>
+
 </resources>

@@ -1,15 +1,26 @@
 package com.example.dell.logisticmanager;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dell.logisticmanager.Utils.PopupToolType;
+import com.example.dell.logisticmanager.Utils.PopupWindowUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +39,8 @@ public class OrderQueryActivity extends AppCompatActivity {
     private ArrayList<OrderInfo> lstInfo=new ArrayList<OrderInfo>();
     private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
     private ListView lst;
-
+    private ImageButton imagebtn_right;
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,8 @@ public class OrderQueryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_query);
 
         Button seartbtn = (Button) findViewById(R.id.btnSearch);
+        imagebtn_right=(ImageButton) findViewById(R.id.imgBtnRight);
+        title=(TextView) findViewById(R.id.tvTitle);
         lst = (ListView) findViewById(R.id.OrderlistView);
         seartbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +75,42 @@ public class OrderQueryActivity extends AppCompatActivity {
           }
       });
 
+        imagebtn_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupWindowTool dw = new PopupWindowTool(view, mHandler);
+                dw.setBackgroundDrawable(OrderQueryActivity.this.getResources()
+                        .getDrawable(R.drawable.title_function_bg));
+                dw.showLikePopDownMenu();
+
+            }
+        });
+
+    }
+
+    public Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case PopupToolType.BUTTON_ONE:
+                    //editCaseType();
+                    setTitle("全部订单");
+                    break;
+                case PopupToolType.BUTTON_TWO:
+                    //delCaseType();
+                    setTitle("未完成订单");
+                    break;
+                case PopupToolType.BUTTON_THREE:
+                    //changeView();
+                    setTitle("完成订单");
+                    break;
+            }
+        }
+    };
+
+    private void setTitle(String status)
+    {
+
+        title.setText(status);
     }
 
     @Override
@@ -130,6 +180,78 @@ public class OrderQueryActivity extends AppCompatActivity {
         lst.setAdapter(listItemAdapter);
 
 
+    }
+
+
+
+
+    //Popup相关
+    private static class PopupWindowTool extends PopupWindowUtil implements
+            View.OnClickListener {
+
+        private Handler mHandler;
+
+        public PopupWindowTool(View anchor, Handler handler) {
+            super(anchor);
+            this.mHandler = handler;
+        }
+
+        @Override
+        protected void onCreate() {
+            // inflate layout
+            LayoutInflater inflater = (LayoutInflater) this.anchor.getContext()
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            View root = null;
+            int[] location = new int[2];
+            anchor.getLocationOnScreen(location);
+            root = (View) inflater.inflate(R.layout.popup_top_right, null);
+
+            // ---------------------------------------------------------------------------
+            LinearLayout btnOne = (LinearLayout) root.findViewById(R.id.btnOne);
+            btnOne.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Message msg = mHandler.obtainMessage();
+                    msg.what = PopupToolType.BUTTON_ONE;
+                    mHandler.sendMessage(msg);
+                    dismiss();
+                }
+            });
+
+            LinearLayout btnTwo = (LinearLayout) root.findViewById(R.id.btnTwo);
+            btnTwo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    Message msg = mHandler.obtainMessage();
+                    msg.what = PopupToolType.BUTTON_TWO;
+                    mHandler.sendMessage(msg);
+                    dismiss();
+                }
+            });
+
+            LinearLayout btnThree = (LinearLayout) root
+                    .findViewById(R.id.btnThree);
+            btnThree.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    Message msg = mHandler.obtainMessage();
+                    msg.what = PopupToolType.BUTTON_THREE;
+                    mHandler.sendMessage(msg);
+                    dismiss();
+                }
+            });
+
+            this.setContentView(root);
+        }
+
+
+        @Override
+        public void onClick(View view) {
+
+        }
     }
 
 }

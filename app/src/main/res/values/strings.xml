@@ -26,4 +26,11 @@
     <string name="login_register_link">没有帐号？ <a href="#">注册</a></string>
 
 
+
+    <string name="back">返回</string>
+
+    <string name="type_edit">修改手袋</string>
+    <string name="type_trash">删除手袋</string>
+    <string name="type_view">切换视图</string>
+
 </resources>

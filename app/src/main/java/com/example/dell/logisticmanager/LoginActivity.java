@@ -93,8 +93,6 @@ public class LoginActivity extends Activity {
 
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(LoginActivity.this);
-
-
                 builder.setIcon(R.drawable.ic_launcher);
                 builder.setTitle("请输入注册信息");
                 //    通过LayoutInflater来加载一个xml的布局文件作为一个View对象

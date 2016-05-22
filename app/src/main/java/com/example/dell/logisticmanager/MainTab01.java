@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etsy.android.grid.StaggeredGridView;
+import com.example.dell.logisticmanager.Data.Order;
 import com.example.dell.logisticmanager.Data.SampleAdapter;
 import com.example.dell.logisticmanager.Data.SampleData;
 import com.example.dell.logisticmanager.WebService.WebAgent;
@@ -147,6 +148,10 @@ public class MainTab01 extends Fragment implements AbsListView.OnItemClickListen
 				itent3.setClass(getActivity(),BrowerActivity.class);
 				startActivity(itent3);
 				break;
+			case 4:
+				Intent intent4=new Intent();
+				intent4.setClass(getActivity(),MapActivity.class);
+				startActivity(intent4);
 			default:
 				break;
 

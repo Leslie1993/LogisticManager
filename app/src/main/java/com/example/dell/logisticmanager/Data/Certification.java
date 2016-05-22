@@ -31,7 +31,7 @@ public class Certification {
         return hex.toString();
     }
 
-
+/*
     public boolean isCertificated(String id,String passWord)
     {
         String passBuffer = md5(passWord);
@@ -60,7 +60,7 @@ public class Certification {
             return true;
         else
             return false;
-    }
+    }*/
 
 
 
