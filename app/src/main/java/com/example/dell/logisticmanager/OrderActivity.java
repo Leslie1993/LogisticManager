@@ -5,21 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.alibaba.fastjson.JSON;
 import com.example.dell.logisticmanager.Utils.AssetsUtils;
-
 import java.util.ArrayList;
-
 import cn.qqtheme.framework.picker.AddressPicker;
 import cn.qqtheme.framework.picker.OptionPicker;
 
 public class OrderActivity extends AppCompatActivity {
 
-    EditText startLocation;
-    EditText endLocation;
-    EditText vehicleNum;
-    EditText pathSelect;
+    protected EditText startLocation;
+    protected EditText endLocation;
+    protected EditText vehicleNum;
+    protected EditText pathSelect;
     private String[] vehicleArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +29,8 @@ public class OrderActivity extends AppCompatActivity {
         Button num=(Button) findViewById(R.id.btn_selectvehivle);
         Button path=(Button) findViewById(R.id.btn_path);
         Button submit=(Button) findViewById(R.id.btn_submit);
+        Button back=(Button)findViewById(R.id.btnBack);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +59,12 @@ public class OrderActivity extends AppCompatActivity {
 
                     }
                 }).start();
+                finish();
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -93,7 +98,7 @@ public class OrderActivity extends AppCompatActivity {
         picker.show();
     }
 
-    public void selectVehicleNum(String[] VehicleNum)
+    private void selectVehicleNum(String[] VehicleNum)
     {
         OptionPicker picker = new OptionPicker(this,VehicleNum);
         //picker.setOffset(2);

@@ -1,7 +1,8 @@
 package com.example.dell.logisticmanager;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -19,22 +22,17 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.logisticmanager.Data.OrderInfo;
 import com.example.dell.logisticmanager.Utils.PopupToolType;
 import com.example.dell.logisticmanager.Utils.PopupWindowUtil;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 
 public class OrderQueryActivity extends AppCompatActivity {
 
-    public class OrderInfo
-    {
-        String id;
-        String explain;
-        String info;
 
-    }
 
     private ArrayList<OrderInfo> lstInfo=new ArrayList<OrderInfo>();
     private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
@@ -42,22 +40,33 @@ public class OrderQueryActivity extends AppCompatActivity {
     private ImageButton imagebtn_right;
     private TextView title;
 
+    private int year,month,day;
+
+    EditText startTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_query);
-
+        ImageButton start=(ImageButton)findViewById(R.id.btn_startTime);
+        ImageButton stop=(ImageButton)findViewById(R.id.btn_endTime);
+        Button back=(Button)findViewById(R.id.btnBack);
         Button seartbtn = (Button) findViewById(R.id.btnSearch);
         imagebtn_right=(ImageButton) findViewById(R.id.imgBtnRight);
         title=(TextView) findViewById(R.id.tvTitle);
         lst = (ListView) findViewById(R.id.OrderlistView);
-        seartbtn.setOnClickListener(new View.OnClickListener() {
+        startTime=(EditText) findViewById(R.id.et_startTime);
+
+/*        seartbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (listItem.isEmpty())
                     updateList();
             }
-        });
+        });*/
+
+
+
 
 
       lst.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
@@ -85,8 +94,35 @@ public class OrderQueryActivity extends AppCompatActivity {
 
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar=Calendar.getInstance();
+                year=calendar.get(calendar.YEAR);
+                month=calendar.get(calendar.MONTH);
+                day=calendar.get(calendar.DAY_OF_MONTH);
+                final DatePickerDialog datePickerDialog=new DatePickerDialog(OrderQueryActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        String time=i+"-"+i1+"-"+i2;
+                        startTime.setText(time);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+
+            }
+        });
 
     }
+
+
 
     public Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -103,13 +139,20 @@ public class OrderQueryActivity extends AppCompatActivity {
                     //changeView();
                     setTitle("完成订单");
                     break;
+                case PopupToolType.BUTTON_FOUR:
+                    break;
             }
         }
     };
 
+    private void showMenu()
+    {
+        
+
+    }
+
     private void setTitle(String status)
     {
-
         title.setText(status);
     }
 
@@ -123,6 +166,7 @@ public class OrderQueryActivity extends AppCompatActivity {
 
             case 0:
                 Toast.makeText(OrderQueryActivity.this, "shanchu", Toast.LENGTH_SHORT).show();
+                intentActivity();
                 break;
             case 1:
                 Toast.makeText(OrderQueryActivity.this, "xiugai", Toast.LENGTH_SHORT).show();
@@ -132,7 +176,20 @@ public class OrderQueryActivity extends AppCompatActivity {
     }
 
 
+    private void intentActivity()
+    {
+        OrderInfo order=new OrderInfo();
+        order.info="123";
+        order.id="123";
+        order.explain="123";
+        Bundle buddle=new Bundle();
+        buddle.putSerializable("Order",order);
+        Intent intent=new Intent();
+        intent.setClass(OrderQueryActivity.this,OrderModifyActivity.class);
+        intent.putExtras(buddle);
+        startActivity(intent);
 
+    }
 
     public void getData()
     {
@@ -239,6 +296,20 @@ public class OrderQueryActivity extends AppCompatActivity {
                     // TODO Auto-generated method stub
                     Message msg = mHandler.obtainMessage();
                     msg.what = PopupToolType.BUTTON_THREE;
+                    mHandler.sendMessage(msg);
+                    dismiss();
+                }
+            });
+
+
+            LinearLayout btnFour = (LinearLayout) root
+                    .findViewById(R.id.btnFour);
+            btnThree.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    Message msg = mHandler.obtainMessage();
+                    msg.what = PopupToolType.BUTTON_FOUR;
                     mHandler.sendMessage(msg);
                     dismiss();
                 }

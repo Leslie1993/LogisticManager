@@ -1,9 +1,18 @@
 package com.example.dell.logisticmanager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.ArcOptions;
@@ -22,6 +31,7 @@ import com.baidu.mapapi.map.TextOptions;
 import com.baidu.mapapi.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -35,6 +45,12 @@ public class MapActivity extends Activity {
     Polyline mColorfulPolyline;
     Polyline mTexturePolyline;
 
+    ImageButton mSearch;
+    ListView ls;
+
+    final String[] str={"12","123","343","4454","4454"};
+
+    //Button location,Path;
 
 
     //Polyline mPolyline;
@@ -54,6 +70,8 @@ public class MapActivity extends Activity {
         //
         ImageButton location=(ImageButton) findViewById(R.id.btn_location);
         ImageButton path=(ImageButton) findViewById(R.id.btn_path);
+        mSearch=(ImageButton)findViewById(R.id.btn_mapsearch);
+        ls=(ListView) findViewById(R.id.ls_description);
 
         location.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +89,56 @@ public class MapActivity extends Activity {
 
         //添加绘制图层
         addCustomElementsDemo();
+
+
+        mSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MapActivity.this);
+                builder.setIcon(R.drawable.ic_launcher);
+                builder.setTitle("请输入用户名和密码");
+                //    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
+                View v = LayoutInflater.from(MapActivity.this).inflate(R.layout.search_selection, null);
+                //    设置我们自己定义的布局文件作为弹出框的Content
+                builder.setView(v);
+
+                //final EditText username = (EditText)view.findViewById(R.id.username);
+                //final EditText password = (EditText)view.findViewById(R.id.password);
+
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+
+                        ArrayAdapter adapter=new ArrayAdapter<String>(MapActivity.this,android.R.layout.simple_list_item_1,str);
+                        ls.setAdapter(adapter);
+                        //String a = username.getText().toString().trim();
+                        //String b = password.getText().toString().trim();
+                        //    将输入的用户名和密码打印出来
+                        //Toast.makeText(MainActivity.this, "用户名: " + a + ", 密码: " + b, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+
+                    }
+                });
+                builder.show();
+
+
+
+
+
+            }
+        });
+
+
+
     }
 
     //添加位置
@@ -85,6 +153,9 @@ public class MapActivity extends Activity {
 
 
     }
+
+
+
 
 
     /**
