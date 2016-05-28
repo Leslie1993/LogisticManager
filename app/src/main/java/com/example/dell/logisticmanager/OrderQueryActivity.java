@@ -1,7 +1,9 @@
 package com.example.dell.logisticmanager;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -133,13 +136,14 @@ public class OrderQueryActivity extends AppCompatActivity {
                     break;
                 case PopupToolType.BUTTON_TWO:
                     //delCaseType();
-                    setTitle("未完成订单");
+                    setTitle("完成订单");
                     break;
                 case PopupToolType.BUTTON_THREE:
                     //changeView();
-                    setTitle("完成订单");
+                    setTitle("未完成订单");
                     break;
                 case PopupToolType.BUTTON_FOUR:
+                    setTitle("自定义查询");
                     break;
             }
         }
@@ -147,7 +151,34 @@ public class OrderQueryActivity extends AppCompatActivity {
 
     private void showMenu()
     {
-        
+        AlertDialog.Builder builder = new AlertDialog.Builder(OrderQueryActivity.this);
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setTitle("请输入用户名和密码");
+        //    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
+        View v = LayoutInflater.from(OrderQueryActivity.this).inflate(R.layout.search_selection, null);
+        //    设置我们自己定义的布局文件作为弹出框的Content
+        builder.setView(v);
+
+        //final EditText username = (EditText)view.findViewById(R.id.username);
+        //final EditText password = (EditText)view.findViewById(R.id.password);
+
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+
+            }
+        });
+        builder.show();
 
     }
 
@@ -304,7 +335,7 @@ public class OrderQueryActivity extends AppCompatActivity {
 
             LinearLayout btnFour = (LinearLayout) root
                     .findViewById(R.id.btnFour);
-            btnThree.setOnClickListener(new View.OnClickListener() {
+            btnFour.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // TODO Auto-generated method stub

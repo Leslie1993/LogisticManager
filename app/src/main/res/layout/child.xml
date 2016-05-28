@@ -30,11 +30,12 @@
         android:layout_weight="1"
         android:src="@drawable/collapse"
         android:visibility="gone" />
-     <Button
+     <ImageButton
          android:id="@+id/button1"
          android:layout_width="0dp"
-         android:layout_height="wrap_content"
+         android:layout_height="50dp"
          android:layout_weight="1"
-         android:text="Button" />
+         android:text="Button"
+         android:background="@drawable/set_phone"/>
 
 </LinearLayout>

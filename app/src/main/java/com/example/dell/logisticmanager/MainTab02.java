@@ -2,6 +2,8 @@ package com.example.dell.logisticmanager;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -13,11 +15,14 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AbsListView.LayoutParams;
 
+import com.example.dell.logisticmanager.Sample.Employee;
+import com.example.dell.logisticmanager.Sample.EmployeeAdapter;
 import com.example.dell.logisticmanager.Sample.Group;
 import com.example.dell.logisticmanager.Sample.People;
 import com.example.dell.logisticmanager.UI.PinnedHeaderExpandableListView;
@@ -25,6 +30,8 @@ import com.example.dell.logisticmanager.UI.StickyLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 public class MainTab02 extends Fragment implements
@@ -38,9 +45,10 @@ public class MainTab02 extends Fragment implements
 	private PinnedHeaderExpandableListView expandableListView;
 	private StickyLayout stickyLayout;
 	private ArrayList<Group> groupList;
-	private ArrayList<List<People>> childList;
+	private ArrayList<List<Employee>> childList;
 
 	private MyexpandableListAdapter adapter;
+	private String[] groupName={"总经理","市场部","综合办","技术安全部","财务部","运营部"};
 
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -78,17 +86,38 @@ public class MainTab02 extends Fragment implements
 	void initData() {
 		groupList = new ArrayList<Group>();
 		Group group = null;
-		for (int i = 0; i < 3; i++) {
+	/*	for (int i = 0; i < 3; i++) {
 			group = new Group();
 			group.setTitle("group-" + i);
 			groupList.add(group);
+		}*/
+		for (String name:
+			 groupName) {
+			group=new Group();
+			group.setTitle(name);
+			groupList.add(group);
 		}
 
-		childList = new ArrayList<List<People>>();
-		for (int i = 0; i < groupList.size(); i++) {
+		childList = new ArrayList<List<Employee>>();
+		EmployeeAdapter ea=new EmployeeAdapter();
+		Map map=ea.InitEmployee();
+
+		for (Group p:
+			 groupList) {
+
+			if(map.containsKey(p.getTitle()))
+			{
+				childList.add((List<Employee>) map.get(p.getTitle()));
+
+			}
+
+		}
+		/*for (int i = 0; i < groupList.size(); i++) {
 			ArrayList<People> childTemp;
 			if (i == 0) {
 				childTemp = new ArrayList<People>();
+
+
 				for (int j = 0; j < 13; j++) {
 					People people = new People();
 					people.setName("yy-" + j);
@@ -119,7 +148,8 @@ public class MainTab02 extends Fragment implements
 				}
 			}
 			childList.add(childTemp);
-		}
+
+		}*/
 
 	}
 
@@ -221,11 +251,15 @@ public class MainTab02 extends Fragment implements
 						.findViewById(R.id.address);
 				childHolder.imageView = (ImageView) convertView
 						.findViewById(R.id.image);
-				Button button = (Button) convertView
+				ImageButton button = (ImageButton) convertView
 						.findViewById(R.id.button1);
+				final ChildHolder finalChildHolder = childHolder;
 				button.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
+
+						Intent call=new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+finalChildHolder.textAge.getText().toString()));
+						startActivity(call);
 						//Toast.makeText(MyexpandableListAdapter.this, "", Toast.LENGTH_SHORT).show();
 						//Toast.makeText(MyexpandableListAdapter.this, "clicked pos=", Toast.LENGTH_SHORT).show();
 					}
@@ -236,12 +270,12 @@ public class MainTab02 extends Fragment implements
 				childHolder = (ChildHolder) convertView.getTag();
 			}
 
-			childHolder.textName.setText(((People) getChild(groupPosition,
+			childHolder.textName.setText(((Employee) getChild(groupPosition,
 					childPosition)).getName());
-			childHolder.textAge.setText(String.valueOf(((People) getChild(
-					groupPosition, childPosition)).getAge()));
-			childHolder.textAddress.setText(((People) getChild(groupPosition,
-					childPosition)).getAddress());
+			childHolder.textAge.setText(String.valueOf(((Employee) getChild(
+					groupPosition, childPosition)).getPhoneNum()));
+			childHolder.textAddress.setText(((Employee) getChild(groupPosition,
+					childPosition)).getPosition());
 
 			return convertView;
 		}
@@ -265,6 +299,7 @@ public class MainTab02 extends Fragment implements
 	/*	Toast.makeText(MainActivity.this,
 				childList.get(groupPosition).get(childPosition).getName(), 1)
 				.show();*/
+
 
 		return false;
 	}
