@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+
+        android:text="路线:"
+        android:id="@+id/textView11"
+        android:layout_weight="0.32"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Large Text"
+        android:id="@+id/tv_transport"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/tv_distance"
+        android:layout_alignStart="@+id/tv_distance" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="距离:"
+        android:id="@+id/textView14"
+        android:layout_gravity="left"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:id="@+id/tv_distance"
+        android:layout_alignTop="@+id/textView14"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

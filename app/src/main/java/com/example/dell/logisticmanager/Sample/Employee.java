@@ -14,15 +14,17 @@ public class Employee {
 
     private String name;
 
-    public int getPhoneNum() {
+
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    private String phoneNum;
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
-    private int phoneNum;
+
 
 
     public String getPosition() {

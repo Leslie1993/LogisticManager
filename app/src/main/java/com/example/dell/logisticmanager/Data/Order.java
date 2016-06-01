@@ -5,9 +5,9 @@ package com.example.dell.logisticmanager.Data;
  */
 public class Order {
 
-    public int o_id;
+    public String o_id;
     public String cargoName;
-    public double cargoWeight;
+    public String cargoWeight;
     public String vehicleNum;
     public String vehicleName;
     public String startLocation;
@@ -19,6 +19,6 @@ public class Order {
     public String consigneetel;
     //public String pic;
     public String orderStatus;
-    public String sendTime;
-    public String orderTime;
+    //public String sendTime;
+    //public String orderTime;
 }

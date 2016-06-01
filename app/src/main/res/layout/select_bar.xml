@@ -23,22 +23,42 @@
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:id="@+id/startText"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/searchButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="始发地" />
+        android:layout_toStartOf="@+id/searchButton" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:id="@+id/destinationText"
-        android:text="目的地"
         android:layout_below="@+id/searchButton"
+        android:layout_toEndOf="@+id/textView10"
+        android:layout_toRightOf="@+id/textView10" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="始发地："
+        android:id="@+id/textView9"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center_horizontal|center_vertical"
+        />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="目的地："
+        android:id="@+id/textView10"
+        android:layout_alignTop="@+id/destinationText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_horizontal|center_vertical"/>
 
 </RelativeLayout>

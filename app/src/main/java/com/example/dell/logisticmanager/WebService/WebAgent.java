@@ -200,8 +200,8 @@ public class WebAgent {
         rpc.addProperty("consigneetel",order.consigneetel);
         //rpc.addProperty("pic",order.pic);
         rpc.addProperty("orderstatus",order.orderStatus);
-        rpc.addProperty("sendtime",order.sendTime);
-        rpc.addProperty("ordertime",order.orderTime);
+        //rpc.addProperty("sendtime",order.sendTime);
+        //rpc.addProperty("ordertime",order.orderTime);
 
 
 
@@ -318,8 +318,8 @@ public class WebAgent {
         rpc.addProperty("consigneetel",order.consigneetel);
         //rpc.addProperty("pic",order.pic);
         rpc.addProperty("orderstatus",order.orderStatus);
-        rpc.addProperty("sendtime",order.sendTime);
-        rpc.addProperty("ordertime",order.orderTime);
+        //rpc.addProperty("sendtime",order.sendTime);
+        //rpc.addProperty("ordertime",order.orderTime);
 
 
         // 生成调用WebService方法的SOAP请求信息,并指定SOAP的版本

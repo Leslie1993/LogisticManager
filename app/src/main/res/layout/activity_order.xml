@@ -29,19 +29,21 @@
         android:id="@+id/scrollView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btn_submit">
-
-
-    </ScrollView>
-
-    <include
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        layout="@layout/order_item"
+        android:layout_above="@+id/btn_submit"
         android:layout_below="@+id/top_var_view"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/btn_submit" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/order_item"
+            android:layout_below="@+id/top_var_view"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/btn_submit" />
+    </ScrollView>
 
 
 </RelativeLayout>

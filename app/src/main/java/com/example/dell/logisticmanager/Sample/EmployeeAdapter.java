@@ -20,8 +20,8 @@ public class EmployeeAdapter {
         for(int i=0;i<2;i++)
         {
             Employee e=new Employee();
-            e.setName("xieyu");
-            e.setPhoneNum(1233445454);
+            e.setName("谢宇");
+            e.setPhoneNum("18782179772");
             e.setPosition("经理");
             e0.add(e);
         }
@@ -32,7 +32,7 @@ public class EmployeeAdapter {
             {
                 Employee e=new Employee();
                 e.setName("xieyu");
-                e.setPhoneNum(1233445454);
+                e.setPhoneNum("1233445454");
                 e.setPosition("员工");
                 e1.add(e);
             }
@@ -44,7 +44,7 @@ public class EmployeeAdapter {
         {
             Employee e=new Employee();
             e.setName("xieyu");
-            e.setPhoneNum(1233445454);
+            e.setPhoneNum("1233445454");
             e.setPosition("员工");
             e2.add(e);
         }
@@ -56,7 +56,7 @@ public class EmployeeAdapter {
         {
             Employee e=new Employee();
             e.setName("xieyu");
-            e.setPhoneNum(1233445454);
+            e.setPhoneNum("1233445454");
             e.setPosition("员工");
             e3.add(e);
         }
@@ -68,7 +68,7 @@ public class EmployeeAdapter {
         {
             Employee e=new Employee();
             e.setName("xieyu");
-            e.setPhoneNum(1235455656);
+            e.setPhoneNum("1235455656");
             e.setPosition("员工");
             e4.add(e);
         }
@@ -79,7 +79,7 @@ public class EmployeeAdapter {
         {
             Employee e=new Employee();
             e.setName("xieyu");
-            e.setPhoneNum(1233445454);
+            e.setPhoneNum("1233445454");
             e.setPosition("员工");
             e5.add(e);
         }

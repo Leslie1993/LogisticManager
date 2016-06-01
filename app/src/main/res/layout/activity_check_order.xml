@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/top_var_view"
+        layout="@layout/orderlist_top" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="审核订单"
+        android:id="@+id/btn_submit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorPrimary"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/scrollView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/top_var_view"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:fillViewport="false"
+        android:layout_above="@+id/btn_vehivleSelect">
+
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/order_item"
+            android:layout_alignTop="@+id/scrollView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车辆选择"
+        android:id="@+id/btn_vehivleSelect"
+        android:layout_alignBottom="@+id/tv_vehicleName"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车牌号"
+        android:id="@+id/tv_vehicleNum"
+        android:layout_marginBottom="58dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_above="@+id/btn_submit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车辆名称"
+        android:id="@+id/tv_vehicleName"
+        android:layout_alignTop="@+id/tv_vehicleNum"
+        android:layout_toRightOf="@+id/btn_vehivleSelect"
+        android:layout_toEndOf="@+id/btn_vehivleSelect"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车辆指派"
+        android:id="@+id/btn_vehicleAllocate"
+        android:layout_above="@+id/btn_submit"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
